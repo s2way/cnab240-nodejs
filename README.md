@@ -3,15 +3,11 @@ Biblioteca para gerar arquivos de remessa no padrão CNAB 240
 
 Este projeto foi concebido para facilitar a geração de arquivos no padrão CNAB 240 da Febraban (veja o manual em: http://bit.ly/2c9ssdZ). Se você já possui alguma familiaridade com o padrão 240 posições, sabe que é preciso no mínimo 5 strings de 240 caracteres separadas por quebras de linha, sendo que cada string equivale a uma seção do arquivo:
 
-Header do Arquivo
-
-Header do Lote
-
-Detalhe
-
-Trailing do Lote
-
-Trailing do Arquivo
+    Header do Arquivo
+    Header do Lote
+    Detalhe
+    Trailing do Lote
+    Trailing do Arquivo
 
 Enquanto o header e trailing de arquivo sejam os mesmos para qualquer tipo de operação, as seções pertinentes ao lote e o detalhe (ou detalhes) possuem informações especializadas. O lote pode conter uma ou mais operações.
 
@@ -21,33 +17,25 @@ Esta biblioteca funciona de forma muito simples: você tem os arquivos de layout
 
 Os arquivos de layout ficam na pasta "layout" e estão organizados conforme a seguinte estrutura:
 
--- layout
-
-    -- {nome do banco}
-    
-        -- ArquivoHeader.coffee
-        
-        -- ArquivoTrailing.coffee
-        
-        -- {nome da operacao}
-        
-            -- LoteHeader.coffee
+    -- layout
+        -- {nome do banco}
+            -- ArquivoHeader.coffee
+            -- ArquivoTrailing.coffee
+            -- {nome da operacao}
+                -- LoteHeader.coffee
+                -- LoteTrailing.coffee
+                -- {nome da operacao}.coffee
             
-            -- LoteTrailing.coffee
-            
-            -- {nome da operacao}.coffee
-            
-
 Na pasta layout há, ainda, um arquivo que exporta as regras na mesma estrutura:
 
-module.exports =
-    {nome do banco}:
-        ArquivoHeader: require './{nome do banco}/ArquivoHeader.coffee'
-        ArquivoTrailing: require './{nome do banco}/ArquivoTrailing.coffee'
-        {nome da operacao}:
-            LoteHeader: require './{nome do banco}/{nome da operacao}/LoteHeader.coffee'
-            LoteTrailing: require './{nome do banco}/{nome da operacao}/LoteTrailing.coffee'
-            Detail: require './{nome do banco}/{nome da operacao}/{nome da operacao}.coffee'
+    module.exports =
+        {nome do banco}:
+            ArquivoHeader: require './{nome do banco}/ArquivoHeader.coffee'
+            ArquivoTrailing: require './{nome do banco}/ArquivoTrailing.coffee'
+            {nome da operacao}:
+                LoteHeader: require './{nome do banco}/{nome da operacao}/LoteHeader.coffee'
+                LoteTrailing: require './{nome do banco}/{nome da operacao}/LoteTrailing.coffee'
+                Detail: require './{nome do banco}/{nome da operacao}/{nome da operacao}.coffee'
 
 Então, ao criar um novo layout você precisa, além de seguir a estrutura acima definida, atualizar o arquivo Rules.coffee para que exporte o novo layout.
 
@@ -140,7 +128,3 @@ Ex: `process(userValues)`
 Para utilizar o wrapper process() os dados devem estar estruturados em seções, conforme exemplificado em cnab/test/Example.coffee.
 
 Para gerar mais de uma operação por lote (por exemplo, 5 TEDs ou 100 boletos) a chave `Detail` deve conter, em lugar de um objeto, um array de objetos.
-
-
-
-
