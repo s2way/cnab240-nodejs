@@ -4,9 +4,13 @@ Biblioteca para gerar arquivos de remessa no padrão CNAB 240
 Este projeto foi concebido para facilitar a geração de arquivos no padrão CNAB 240 da Febraban (veja o manual em: http://bit.ly/2c9ssdZ). Se você já possui alguma familiaridade com o padrão 240 posições, sabe que é preciso no mínimo 5 strings de 240 caracteres separadas por quebras de linha, sendo que cada string equivale a uma seção do arquivo:
 
 Header do Arquivo
+
 Header do Lote
+
 Detalhe
+
 Trailing do Lote
+
 Trailing do Arquivo
 
 Enquanto o header e trailing de arquivo sejam os mesmos para qualquer tipo de operação, as seções pertinentes ao lote e o detalhe (ou detalhes) possuem informações especializadas. O lote pode conter uma ou mais operações.
@@ -18,13 +22,21 @@ Esta biblioteca funciona de forma muito simples: você tem os arquivos de layout
 Os arquivos de layout ficam na pasta "layout" e estão organizados conforme a seguinte estrutura:
 
 -- layout
+
     -- {nome do banco}
+    
         -- ArquivoHeader.coffee
+        
         -- ArquivoTrailing.coffee
+        
         -- {nome da operacao}
+        
             -- LoteHeader.coffee
+            
             -- LoteTrailing.coffee
+            
             -- {nome da operacao}.coffee
+            
 
 Na pasta layout há, ainda, um arquivo que exporta as regras na mesma estrutura:
 
