@@ -1,0 +1,56 @@
+{
+  "name": "cnab240-nodejs",
+  "version": "0.1.0",
+  "description": "Gerador de arquivo de remessa padrão CNAB 240 / HSBC",
+  "main": "main.coffee",
+  "scripts": {
+    "pretest": "node_modules/.bin/coffeelint -f coffeelint.json src",
+    "test": "mocha test --recursive -R progress --compilers coffee:coffee-script/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s2way/cnab240-nodejs.git"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "cov/src",
+      "loader": "./node-loaders/coffee-script.js"
+    },
+    "mocha-cov-reporter": {
+      "failOnError": true,
+      "threshold": 100,
+      "useColors": true
+    }
+  },
+  "keywords": [
+    "query builder",
+    "mysql"
+  ],
+  "author": "Newborns/S2Way",
+  "bugs": {
+    "url": "https://github.com/s2way/cnab240-nodejs/issues"
+  },
+  "homepage": "https://github.com/s2way/cnab240-nodejs",
+  "devDependencies": {
+    "blanket": "^1.2.1",
+    "coffeelint": "^1.9.4",
+    "expect.js": "^0.3.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-coffeelint": "0.0.13",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-exec": "~0.4.6",
+    "grunt-mocha-test": "^0.12.7",
+    "load-grunt-tasks": "^3.1.0",
+    "mocha": "^2.2.4",
+    "mocha-cov-reporter": "^1.1.0",
+    "mocha-multi": "~0.7.1"
+  },
+  "dependencies": {
+    "joi": "^9.0.4",
+    "lodash": "^4.15.0",
+    "moment": "^2.14.1"
+  }
+}
