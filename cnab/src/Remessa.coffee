@@ -1,4 +1,4 @@
-Rules = require '../../rules/Rules'
+Rules = require '../../layout/Rules'
 Utils = require './Utils'
 Joi = require 'joi'
 _ = require 'lodash'

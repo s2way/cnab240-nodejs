@@ -57,7 +57,7 @@
 
   fileName = "PAG399_0006930_" + (moment().format('DDMMYY')) + "01.REM";
 
-  path = './gen_files';
+  path = process.env.EFS || './gen_files';
 
   fs = require('fs');
 

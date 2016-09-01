@@ -43,7 +43,7 @@ require('expect.js')(file).to.have.length 1204
 
 moment = require 'moment'
 fileName = "PAG399_0006930_#{moment().format 'DDMMYY'}01.REM"
-path = './gen_files'
+path = process.env.EFS or './gen_files'
 
 fs = require 'fs'
 

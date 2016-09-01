@@ -2,7 +2,7 @@
 (function() {
   var Joi, Remessa, Rules, Utils, _;
 
-  Rules = require('../../rules/Rules');
+  Rules = require('../../layout/Rules');
 
   Utils = require('./Utils');
 
