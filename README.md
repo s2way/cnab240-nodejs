@@ -100,7 +100,6 @@ Ex:
 
 validate(rulesName, userValues)
 Valida as informações de `userValues` contra as regras da seção `rulesName`
-Ex:
 ```
 userValues =
     banco: 'HSBC'
@@ -109,21 +108,20 @@ userValues =
 validate('ArquivoHeader', userValues)
 ```
 
-prepare(rulesName, validated)
+### prepare(rulesName, validated)
 Formata as informações para corresponder às configurações do campo
 Retorna as regras com os valores formatados
-Ex: `prepare('LoteHeader', userValues)`
+`prepare('LoteHeader', userValues)`
 
-build(prepared)
+### build(prepared)
 Constrói a string de 240 posições inserindo os valores em suas respectivas posições, a partir do retorno da função prepare()
 Retorna uma string de 240 posições
-Ex: `build(prepared)`
+`build(prepared)`
 
-process(userValues)
+### process(userValues)
 Executa o processo de validação, preparação e construção de strings em sequência.
 Retorna uma string com todas as seções do arquivo de remessa, separadas por quebras de linha
-Ex: `process(userValues)`
-
+`process(userValues)`
 
 Para utilizar o wrapper process() os dados devem estar estruturados em seções, conforme exemplificado em cnab/test/Example.coffee.
 
