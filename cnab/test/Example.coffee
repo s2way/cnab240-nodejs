@@ -47,4 +47,6 @@ path = process.env.EFS or './gen_files'
 
 fs = require 'fs'
 
-fs.writeFile "#{path}/#{fileName}", file
+fs.writeFile "#{path}/#{fileName}", file, (err) ->
+    return console.log "file save error: #{err}" if err?
+    console.log "file '#{fileName}' successfully saved"
