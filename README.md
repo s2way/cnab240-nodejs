@@ -83,14 +83,6 @@ E o que significa cada campo?
 
 Para a criação dos arquivos de layout, você deve seguir o manual disponibilizado por cada banco.
 
-## Como utilizar
-
-```
-Remessa = require('../../main').Remessa
-remessa = new Remessa 'HSBC', 'Pagamento'
-file = remessa.process userValues
-```
-
 ## API
 
 ### new Remessa(bank, type)
