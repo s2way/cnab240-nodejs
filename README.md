@@ -39,7 +39,7 @@ Na pasta layout há, ainda, um arquivo que exporta as regras na mesma estrutura:
 
 Então, ao criar um novo layout você precisa, além de seguir a estrutura acima definida, atualizar o arquivo Rules.coffee para que exporte o novo layout.
 
-O arquivo de layout nada mais é que um array com as regras de cada campo...
+O arquivo de layout nada mais é que um array com as regras de cada campo.
 
 
 ```
@@ -71,7 +71,7 @@ module.exports = [
     ...
 ```
 
-E o que significa cada campo?
+E o que significa cada regra?
 
     - field: *nome do campo*
     - startPos: *posicao na string em que o campo começa*
