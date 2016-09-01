@@ -126,6 +126,9 @@ Retorna uma string com todas as seções do arquivo de remessa, separadas por qu
 
 `process(userValues)`
 
+----------------------------------
+Observações:
+
 Para utilizar o wrapper process() os dados devem estar estruturados em seções, conforme exemplificado em cnab/test/Example.coffee.
 
 Para gerar mais de uma operação por lote (por exemplo, 5 TEDs ou 100 boletos) a chave `Detail` deve conter, em lugar de um objeto, um array de objetos.
