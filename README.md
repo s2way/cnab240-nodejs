@@ -93,12 +93,12 @@ file = remessa.process userValues
 
 ## API
 
-new Remessa(bank, type)
+### new Remessa(bank, type)
 Cria uma nova instância utilizando o layout `type` de `bank`.
-Ex:
+
 `new Remessa('HSBC', 'Pagamento')`
 
-validate(rulesName, userValues)
+### validate(rulesName, userValues)
 Valida as informações de `userValues` contra as regras da seção `rulesName`
 ```
 userValues =
@@ -111,16 +111,19 @@ validate('ArquivoHeader', userValues)
 ### prepare(rulesName, validated)
 Formata as informações para corresponder às configurações do campo
 Retorna as regras com os valores formatados
+
 `prepare('LoteHeader', userValues)`
 
 ### build(prepared)
 Constrói a string de 240 posições inserindo os valores em suas respectivas posições, a partir do retorno da função prepare()
 Retorna uma string de 240 posições
+
 `build(prepared)`
 
 ### process(userValues)
 Executa o processo de validação, preparação e construção de strings em sequência.
 Retorna uma string com todas as seções do arquivo de remessa, separadas por quebras de linha
+
 `process(userValues)`
 
 Para utilizar o wrapper process() os dados devem estar estruturados em seções, conforme exemplificado em cnab/test/Example.coffee.
