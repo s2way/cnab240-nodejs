@@ -42,7 +42,7 @@ file = remessa.process params
 require('expect.js')(file).to.have.length 1204
 
 moment = require 'moment'
-fileName = "PAG399_0006930_#{moment().format 'DDMMYY'}01.REM"
+fileName = "example_file.REM"
 path = process.env.EFS or './gen_files'
 
 fs = require 'fs'
