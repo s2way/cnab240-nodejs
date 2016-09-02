@@ -38,3 +38,4 @@ jspm_packages
 
 coverage.html
 gen_files
+cnab/test/Test.coffee
