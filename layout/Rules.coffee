@@ -6,3 +6,4 @@ module.exports =
             LoteHeader: require './HSBC/Pagamento/LoteHeader.coffee'
             LoteTrailing: require './HSBC/Pagamento/LoteTrailing.coffee'
             Detail: require './HSBC/Pagamento/Pagamento.coffee'
+            Constants: require './HSBC/Pagamento/Constants.coffee'
