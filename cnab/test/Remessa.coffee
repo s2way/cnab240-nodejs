@@ -393,6 +393,7 @@ describe 'Remessa.js', ->
                 LoteHeader: nome_banco: 'Brasil'
                 LoteTrailing: conta_dig_verificador: '0'
                 Detail: lote: '02'
+                Detail2: empresa_tipo_insc: '1'
             processRules =
                 Bank:
                     ArquivoHeader: [
@@ -448,11 +449,21 @@ describe 'Remessa.js', ->
                                 type: 'numeric'
                             }
                         ]
+                        Detail2: [
+                            {
+                                field: 'empresa_tipo_insc'
+                                startPos: 10
+                                endPos: 11
+                                length: 1
+                                required: true
+                                type: 'numeric'
+                            }
+                        ]
 
         it 'should throw an error if any required file section is missing', ->
 
             remessa = new Remessa 'Bank', 'Pagamento', Rules: processRules
-            expect(remessa.process).withArgs({ArquivoHeader: {}, ArquivoTrailing: {}}).to.throwError /Missing file sections: LoteHeader, Detail, LoteTrailing/
+            expect(remessa.process).withArgs({ArquivoHeader: {}, ArquivoTrailing: {}}).to.throwError /Missing file sections: LoteHeader, Detail, Detail2, LoteTrailing/
 
         it 'should throw an error if any required field is missing', ->
 
@@ -466,14 +477,14 @@ describe 'Remessa.js', ->
 
         it 'should build and return a remessa string', ->
 
-            expectedOutput = '399\nBrasil              \n00002\n0\n03020'
+            expectedOutput = '399\nBrasil              \n00002\n1\n0\n03020'
 
             remessa = new Remessa 'Bank', 'Pagamento', Rules: processRules
             expect(remessa.process userValues).to.be expectedOutput
 
         it 'should build the string if there are more than one detail', ->
 
-            expectedOutput = '399\nBrasil              \nlote1\nlote2\n0\n03020'
+            expectedOutput = '399\nBrasil              \nlote1\nlote2\n1\n0\n03020'
 
             remessa = new Remessa 'Bank', 'Pagamento', Rules: processRules
             userValues.Detail = [

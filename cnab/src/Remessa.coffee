@@ -22,8 +22,9 @@ class Remessa
             LoteHeader: rules[bank][type]?.LoteHeader
             LoteTrailing: rules[bank][type]?.LoteTrailing
             Detail: rules[bank][type]?.Detail
+            Detail2: rules[bank][type]?.Detail2
 
-    # add data, enum and range validations
+    # TODO: add data, enum and range validations
     validate: (rulesName, userValues) ->
         throw new Error 'RulesName is mandatory' unless rulesName?
         throw new Error 'UserValues is mandatory' unless userValues?
@@ -67,7 +68,8 @@ class Remessa
         base.shift()
         base.join ''
 
-    process: (userValues) ->
+    process: (userValues, fileSections) ->
+        FILE_SECTIONS = fileSections if fileSections?
         # let's test if all required file sections were given
         missingKeys = _.difference FILE_SECTIONS, _.keys userValues
         throw Error "Missing file sections: #{missingKeys.join(', ')}" unless _.isEmpty missingKeys

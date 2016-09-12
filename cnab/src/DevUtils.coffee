@@ -1,8 +1,8 @@
-rules = require '../rules/Rules'
+rules = require '../../layout/Rules'
 expect = require 'expect.js'
 _ = require 'lodash'
 
-class Utils
+class DevUtils
 
     constructor: (bank, type) ->
         @rules =
@@ -11,6 +11,7 @@ class Utils
             LoteHeader: rules[bank][type].LoteHeader
             LoteTrailing: rules[bank][type].LoteTrailing
             Detail: rules[bank][type].Detail
+            Detail2: rules[bank][type].Detail2
 
     getRequired: ->
         for key, subject of @rules
@@ -27,6 +28,20 @@ class Utils
             required = _.map subject, (item) ->
                 "#{item.field}": _.pick item, ['type', 'length', 'default']
             # @_log required
+
+    extract: (sections, fileString) ->
+        fileSections = fileString.split '\n'
+        merged = _.reduce sections, (parsed, section, index) =>
+            rules = @rules[section]
+            content = fileSections[index]
+            sectionData = _.reduce rules, (extracted, rule) ->
+                extracted["#{rule.field}"] = content.split('').slice(rule.startPos-1, rule.endPos).join ''
+                extracted
+            , {}
+            parsed["#{section}"] = sectionData
+            parsed
+        , {}
+        console.log merged
 
     validate: ->
         for key, subject of @rules
@@ -47,10 +62,10 @@ class Utils
             expect(total.totalLength).to.be 240
 
     _log: (msg) ->
-        # console.log msg
+        console.log msg
 
     _stdout: (msg) ->
         # process.stdout.write msg
 
 
-module.exports = Utils
+module.exports = DevUtils
