@@ -50,18 +50,10 @@ module.exports = [
     {
         field: 'convenio'
         startPos: 33
-        endPos: 38
-        length: 6
+        endPos: 52
+        length: 20
         required: true
         type: 'numeric'
-    }
-    {
-        field: 'filler'
-        startPos: 39
-        endPos: 52
-        length: 14
-        required: false
-        default: new Array(14).fill(' ').join('')
     }
     {
         field: 'conta_agencia'
@@ -165,46 +157,35 @@ module.exports = [
         endPos: 166
         length: 3
         required: true
-        default: '020'
+        default: '089'
     }
     {
         field: 'arquivo_densidade'
         startPos: 167
         endPos: 171
         length: 5
-        required: true
-        default: '01600'
-    }
-    {
-        field: 'aplicacao'
-        startPos: 172
-        endPos: 174
-        length: 3
-        required: true
-        default: 'CPG'
-    }
-    {
-        field: 'ident_ano_2000'
-        startPos: 175
-        endPos: 177
-        length: 3
-        required: true
-        default: 'Y2K'
-    }
-    {
-        field: 'controle_CPG'
-        startPos: 178
-        endPos: 191
-        length: 14
         required: false
-        default: new Array(14).fill(' ').join('')
+    }
+    {
+        field: 'reservado_banco'
+        startPos: 172
+        endPos: 191
+        length: 20
+        required: false
+    }
+    {
+        field: 'reservado_empresa'
+        startPos: 192
+        endPos: 211
+        length: 20
+        default: 'alphanumeric'
     }
     {
         field: 'filler'
-        startPos: 192
+        startPos: 212
         endPos: 240
-        length: 49
+        length: 29
         required: false
-        default: new Array(49).fill(' ').join('')
+        default: new Array(29).fill(' ').join('')
     }
 ]

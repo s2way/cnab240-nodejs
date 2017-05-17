@@ -21,7 +21,7 @@ module.exports = [
         endPos: 8
         length: 1
         required: true
-        default: 9
+        default: '9'
     }
     {
         field: 'filler'
