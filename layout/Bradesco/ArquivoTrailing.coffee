@@ -48,6 +48,14 @@ module.exports = [
         type: 'numeric'
     }
     {
+        field: 'qtde_registros'
+        startPos: 24
+        endPos: 29
+        length: 6
+        required: true
+        type: 'numeric'
+    }
+    {
         field: 'filler'
         startPos: 30
         endPos: 240
