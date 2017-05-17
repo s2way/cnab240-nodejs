@@ -34,19 +34,32 @@ params =
         doc_num: '153'
         data_lcto_credito: '29082016'
         valor_lcto: '10000'
+    Detail2:
+        num_seq_registro_lote: '1'
+        movimento_tipo: '9'
+        movimento_cod: '00'
+        cod_camara: '018'
+        favorecido_cod_banco: '001'
+        favorecido_agencia: '2898'
+        favorecido_num_conta: '17945'
+        favorecido_dig_verificador: '7'
+        favorecido_nome: 'Chuck Norris'
+        doc_num: '153'
+        data_lcto_credito: '29082016'
+        valor_lcto: '10000'
 
 Remessa = require('../../main').Remessa
 remessa = new Remessa 'HSBC', 'Pagamento'
-file = remessa.process params
-
-require('expect.js')(file).to.have.length 1204
-
-moment = require 'moment'
-fileName = "example_file.REM"
-path = process.env.EFS or './gen_files'
-
-fs = require 'fs'
-
-fs.writeFile "#{path}/#{fileName}", file, (err) ->
-    return console.log "file save error: #{err}" if err?
-    console.log "file '#{fileName}' successfully saved"
+# file = remessa.process params
+#
+# require('expect.js')(file).to.have.length 1204
+#
+# moment = require 'moment'
+# fileName = "example_file.REM"
+# path = process.env.EFS or './gen_files'
+#
+# fs = require 'fs'
+#
+# fs.writeFile "#{path}/#{fileName}", file, (err) ->
+#     return console.log "file save error: #{err}" if err?
+#     console.log "file '#{fileName}' successfully saved"

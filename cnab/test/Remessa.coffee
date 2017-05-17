@@ -500,7 +500,3 @@ describe 'Remessa.js', ->
                 ]
             ]
             expect(remessa.process userValues).to.be expectedOutput
-
-
-
-

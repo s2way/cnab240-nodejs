@@ -10,7 +10,8 @@ class Remessa
     LOT_HEADER = 'LoteHeader'
     LOT_TRAILING = 'LoteTrailing'
     DETAIL = 'Detail'
-    FILE_SECTIONS = [FILE_HEADER, LOT_HEADER, DETAIL, LOT_TRAILING, FILE_TRAILING]
+    DETAIL2 = 'Detail2'
+    FILE_SECTIONS = [FILE_HEADER, LOT_HEADER, DETAIL, DETAIL2, LOT_TRAILING, FILE_TRAILING]
 
     constructor: (bank, type, deps) ->
         rules = deps?.Rules or Rules
@@ -73,7 +74,7 @@ class Remessa
         # let's test if all required file sections were given
         missingKeys = _.difference FILE_SECTIONS, _.keys userValues
         throw Error "Missing file sections: #{missingKeys.join(', ')}" unless _.isEmpty missingKeys
-        
+
         # now we'll put the section key into each values object...
         valuesArr =_.map FILE_SECTIONS, (section) ->
             # the detail section could have several items

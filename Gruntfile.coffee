@@ -44,7 +44,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'default', 'Default', ->
         grunt.task.run 'lint'
         grunt.task.run 'test'
-        grunt.task.run 'compile'
+        # grunt.task.run 'compile'
         grunt.task.run 'coverage'
     grunt.registerTask 'lint', ['coffeelint']
     grunt.registerTask 'test', ['mochaTest:progress']
