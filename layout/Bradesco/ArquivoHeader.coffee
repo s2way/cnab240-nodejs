@@ -5,7 +5,7 @@ module.exports = [
         endPos: 3
         length: 3
         required: true
-        default: 399
+        default: 237
     }
     {
         field: 'lote'
@@ -165,6 +165,7 @@ module.exports = [
         endPos: 171
         length: 5
         required: false
+        type: 'numeric'
     }
     {
         field: 'reservado_banco'

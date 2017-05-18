@@ -5,7 +5,7 @@ module.exports = [
         endPos: 3
         length: 3
         required: true
-        default: 399
+        default: 237
     }
     {
         field: 'lote'
@@ -54,7 +54,7 @@ module.exports = [
         endPos: 16
         length: 3
         required: true
-        default: '046'
+        default: '045'
     }
     {
         field: 'filler'
@@ -205,7 +205,7 @@ module.exports = [
         endPos: 224
         length: 2
         required: false
-        default: '01'
+        default: '01' # débito em conta corrente
     }
     {
         field: 'filler'

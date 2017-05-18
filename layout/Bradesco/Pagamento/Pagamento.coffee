@@ -5,7 +5,7 @@ module.exports = [
         endPos: 3
         length: 3
         required: true
-        default: 399
+        default: 237
     }
     {
         field: 'lote'
@@ -47,6 +47,7 @@ module.exports = [
         length: 1
         required: true
         type: 'numeric'
+        default: 0
     }
     {
         field: 'movimento_cod'
@@ -70,7 +71,7 @@ module.exports = [
         endPos: 23
         length: 3
         required: true
-        type: 'numeric'
+        default: 237
     }
     {
         field: 'favorecido_agencia'
@@ -212,7 +213,7 @@ module.exports = [
         endPos: 226
         length: 2
         required: false
-        type: 'alphanumeric'
+        default: 'CC'
     }
     {
         field: 'cnab'
