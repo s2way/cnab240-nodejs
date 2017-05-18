@@ -54,7 +54,7 @@ module.exports = [
         endPos: 16
         length: 3
         required: true
-        default: '020'
+        default: '046'
     }
     {
         field: 'filler'
@@ -83,18 +83,10 @@ module.exports = [
     {
         field: 'convenio'
         startPos: 33
-        endPos: 38
-        length: 6
+        endPos: 52
+        length: 20
         required: true
         type: 'numeric'
-    }
-    {
-        field: 'filler'
-        startPos: 39
-        endPos: 52
-        length: 14
-        required: false
-        default: new Array(14).fill(' ').join('')
     }
     {
         field: 'conta_agencia'
@@ -105,12 +97,12 @@ module.exports = [
         type: 'numeric'
     }
     {
-        field: 'filler'
+        field: 'agencia_dig_verificador'
         startPos: 58
         endPos: 58
         length: 1
-        required: false
-        default: ' '
+        required: true
+        type: 'alphanumeric'
     }
     {
         field: 'conta_num'
@@ -129,12 +121,11 @@ module.exports = [
         type: 'numeric'
     }
     {
-        field: 'filler'
+        field: 'agencia_conta_dig_verificador'
         startPos: 72
         endPos: 72
         length: 1
         required: false
-        default: ' '
     }
     {
         field: 'empresa_nome'
@@ -145,7 +136,7 @@ module.exports = [
         type: 'alphanumeric'
     }
     {
-        field: 'mensagem_mkt'
+        field: 'mensagem'
         startPos: 103
         endPos: 142
         length: 40
@@ -209,19 +200,26 @@ module.exports = [
         type: 'alphanumeric'
     }
     {
-        field: 'comprovante_pgto'
+        field: 'forma_pgto_servico'
         startPos: 223
-        endPos: 223
-        length: 1
+        endPos: 224
+        length: 2
         required: false
-        type: 'alphanumeric'
+        default: '01'
     }
     {
         field: 'filler'
-        startPos: 224
-        endPos: 240
-        length: 17
+        startPos: 225
+        endPos: 230
+        length: 6
         required: false
         default: new Array(17).fill(' ').join('')
+    }
+    {
+        field: 'codigos_ocorrencias'
+        startPos: 231
+        endPos: 240
+        length: 10
+        required: false
     }
 ]

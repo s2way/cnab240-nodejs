@@ -130,20 +130,83 @@ module.exports = [
         type: 'alphanumeric'
     }
     {
-        field: 'filler'
+        field: 'data_vencimento'
         startPos: 128
-        endPos: 232
-        length: 105
+        endPos: 135
+        length: 8
+        required: true
+        type: 'numeric'
+    }
+	{
+        field: 'valor_documento'
+        startPos: 136
+        endPos: 150
+        length: 15
+        required: true
+        type: 'numeric'
+    }
+	{
+        field: 'valor_abatimento'
+        startPos: 151
+        endPos: 165
+        length: 15
         required: false
-        default: new Array(105).fill(' ').join('')
-        type: 'alphanumeric'
+        type: 'numeric'
+    }
+	{
+        field: 'valor_desconto'
+        startPos: 166
+        endPos: 180
+        length: 15
+        required: false
+        type: 'numeric'
+    }
+	{
+        field: 'valor_mora'
+        startPos: 181
+        endPos: 195
+        length: 15
+        required: false
+        type: 'numeric'
     }
     {
+        field: 'valor_multa'
+        startPos: 196
+        endPos: 210
+        length: 15
+        required: false
+        type: 'numeric'
+    }
+	{
+        field: 'cod_doc_favorecido'
+        startPos: 211
+        endPos: 225
+        length: 15
+        required: false
+        type: 'alphanumeric'
+    }
+	{
+        field: 'aviso_ao_favorecido'
+        startPos: 226
+        endPos: 226
+        length: 1
+        required: false
+        type: 'numeric'
+    }
+	{
         field: 'filler'
+        startPos: 227
+        endPos: 232
+        length: 6
+        required: false
+		default: new Array(6).fill(' ').join('')
+    }
+	{
+        field: 'codigo_ispb'
         startPos: 233
         endPos: 240
         length: 8
         required: false
-        type: 'alphanumeric'
+		default: new Array(8).fill(' ').join('')
     }
 ]

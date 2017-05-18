@@ -81,12 +81,11 @@ module.exports = [
         type: 'numeric'
     }
     {
-        field: 'filler'
+        field: 'favorecido_dig_agencia'
         startPos: 29
         endPos: 29
         length: 1
-        required: false
-        default: ' '
+        required: true
     }
     {
         field: 'favorecido_num_conta'
@@ -105,12 +104,11 @@ module.exports = [
         type: 'alphanumeric'
     }
     {
-        field: 'filler'
+        field: 'ag_conta_digito_verificador'
         startPos: 43
         endPos: 43
         length: 1
         required: false
-        default: ' '
     }
     {
         field: 'favorecido_nome'
@@ -121,77 +119,68 @@ module.exports = [
         type: 'alphanumeric'
     }
     {
-        field: 'doc_num'
+        field: 'doc_empresa'
         startPos: 74
-        endPos: 89
-        length: 16
-        required: true
-        type: 'alphanumeric'
-    }
-    {
-        field: 'filler'
-        startPos: 90
         endPos: 93
-        length: 4
-        required: false
-        default: new Array(4).fill(' ').join('')
+        length: 20
+        required: true
+        type: 'date'
     }
     {
-        field: 'data_lcto_credito'
+        field: 'data_pagamento'
         startPos: 94
         endPos: 101
         length: 8
         required: true
-        type: 'date'
+        type: 'alphanumeric'
     }
     {
         field: 'tipo_moeda'
         startPos: 102
         endPos: 104
         length: 3
-        required: true
-        default: 'R$ '
-        type: 'alphanumeric'
-    }
-    {
-        field: 'filler'
-        startPos: 105
-        endPos: 121
-        length: 17
         required: false
-        default: new Array(17).fill(' ').join('')
+        default: 'BRL'
     }
     {
-        field: 'valor_lcto'
-        startPos: 122
-        endPos: 134
-        length: 13
-        required: true
+        field: 'qtde_moeda'
+        startPos: 105
+        endPos: 119
+        length: 15
+        required: false
         type: 'numeric'
     }
     {
-        field: 'comprovante_pgto'
+        field: 'valor_pagamento'
+        startPos: 120
+        endPos: 134
+        length: 15
+        required: true
+        type: 'alphanumeric'
+    }
+    {
+        field: 'num_doc_atribuido_banco'
         startPos: 135
-        endPos: 135
-        length: 1
+        endPos: 154
+        length: 20
         required: false
         type: 'alphanumeric'
     }
     {
-        field: 'pagador_efetivo'
-        startPos: 136
-        endPos: 165
-        length: 30
+        field: 'data_real_efetivacao_pgto'
+        startPos: 155
+        endPos: 162
+        length: 8
         required: false
-        type: 'alphanumeric'
+        type: 'numeric'
     }
     {
-        field: 'filler'
-        startPos: 166
+        field: 'valor_real_efetivacao_pgto'
+        startPos: 163
         endPos: 177
-        length: 12
+        length: 15
         required: false
-        default: new Array(12).fill(' ').join('')
+        type: 'numeric'
     }
     {
         field: 'info2'
@@ -242,7 +231,7 @@ module.exports = [
         type: 'alphanumeric'
     }
     {
-        field: 'filler'
+        field: 'codigos_ocorrencias'
         startPos: 231
         endPos: 240
         length: 10

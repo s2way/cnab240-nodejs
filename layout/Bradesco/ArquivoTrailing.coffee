@@ -48,18 +48,18 @@ module.exports = [
         type: 'numeric'
     }
     {
-        field: 'qtde_registros'
-        startPos: 24
-        endPos: 29
+        field: 'qtde_contas'
+        startPos: 30
+        endPos: 35
         length: 6
         required: true
         type: 'numeric'
     }
     {
         field: 'filler'
-        startPos: 30
+        startPos: 36
         endPos: 240
-        length: 211
+        length: 205
         required: false
         default: new Array(211).fill(' ').join('')
     }

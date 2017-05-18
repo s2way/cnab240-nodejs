@@ -65,7 +65,7 @@ class DevUtils
         console.log msg
 
     _stdout: (msg) ->
-        # process.stdout.write msg
+        process.stdout.write msg
 
 
 module.exports = DevUtils
