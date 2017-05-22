@@ -93,7 +93,7 @@ module.exports = [
         startPos: 53
         endPos: 57
         length: 5
-        required: false
+        required: true
         type: 'numeric'
     }
     {

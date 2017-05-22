@@ -59,8 +59,8 @@ module.exports =
             LIQUIDACAO: 7
             EXCLUSAO: 9
         CODIGO_MOVIMENTO: # indica a movimentação a ser efetuada
-            INCLUSAO: 0 # inclusão com registro detalhe
-            INCLUSAO_COM_BLOQUEIO: 9 # inclusão com bloqueio
+            INCLUSAO: '0' # inclusão com registro detalhe
+            INCLUSAO_COM_BLOQUEIO: '9' # inclusão com bloqueio
         COD_CAMARA_CENTRALIZADORA:
-            TED: 18
-            DOC: 700
+            TED: '18'
+            DOC: '700'

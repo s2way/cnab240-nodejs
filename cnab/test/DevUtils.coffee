@@ -7,7 +7,7 @@ type = 'Pagamento'
 
 validator = new DevUtils bank, type
 validator.validate()
-# validator.getRequired()
+validator.getRequired()
 
 # coffeelint: enable=no_trailing_whitespace
 # validator.extract sections, string

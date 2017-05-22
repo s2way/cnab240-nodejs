@@ -24,6 +24,7 @@ class Remessa
             LoteTrailing: rules[bank][type]?.LoteTrailing
             Detail: rules[bank][type]?.Detail
             Detail2: rules[bank][type]?.Detail2
+        @CONSTANTS = rules[bank][type]?.Constants
 
     # TODO: add data, enum and range validations
     validate: (rulesName, userValues) ->
