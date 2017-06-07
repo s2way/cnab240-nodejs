@@ -1,6 +1,7 @@
 Rules = require '../../layout/Rules'
 Utils = require './Utils'
 Joi = require 'joi'
+expect = require 'expect.js'
 _ = require 'lodash'
 
 class Remessa
@@ -27,7 +28,7 @@ class Remessa
         @CONSTANTS = rules[bank][type]?.Constants
 
     # TODO: add data, enum and range validations
-    validate: (rulesName, userValues) ->
+    validateLenghts: (rulesName, userValues) ->
         throw new Error 'RulesName is mandatory' unless rulesName?
         throw new Error 'UserValues is mandatory' unless userValues?
         rules = _.reduce @rules[rulesName], (rules, fieldConfig) ->
@@ -40,6 +41,9 @@ class Remessa
 
         validation = (Joi.validate userValues, Joi.object(rules), abortEarly: false)?.error?.details?.map (error) -> error.message
         throw new Error validation unless _.isEmpty validation
+        _.each _.filter(@rules[rulesName], 'default'), (config) ->
+            if config.default.toString().length isnt config.length
+                throw new Error "#{rulesName}.#{config.field} length must be less than or equal to #{config.length} characters long"
 
     prepare: (rulesName, validated) ->
         utils = new Utils
@@ -68,6 +72,8 @@ class Remessa
             args = [fieldConfig.startPos, fieldConfig.length].concat fieldValue.toString().split ''
             base.splice.apply(base, args).join ''
         base.shift()
+        # console.log 'Checking section size on build'
+        # expect(base.length).to.be 240
         base.join ''
 
     process: (userValues, fileSections) ->
@@ -92,7 +98,7 @@ class Remessa
         remessa = _.map sections, (section) =>
             sectionKey = section.section
             sectionValues = _.omit section, 'section'
-            @validate sectionKey, sectionValues
+            @validateLenghts sectionKey, sectionValues
             @build @prepare sectionKey, sectionValues
         remessa.join '\n'
 

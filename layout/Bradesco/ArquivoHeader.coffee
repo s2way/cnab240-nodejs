@@ -173,13 +173,15 @@ module.exports = [
         endPos: 191
         length: 20
         required: false
+        type: 'alphanumeric'
     }
     {
         field: 'reservado_empresa'
         startPos: 192
         endPos: 211
         length: 20
-        default: 'alphanumeric'
+        type: 'alphanumeric'
+        default: new Array(20).fill(' ').join('')
     }
     {
         field: 'filler'

@@ -93,7 +93,7 @@ module.exports = [
         startPos: 53
         endPos: 57
         length: 5
-        required: true
+        required: false
         type: 'numeric'
     }
     {
@@ -101,7 +101,7 @@ module.exports = [
         startPos: 58
         endPos: 58
         length: 1
-        required: true
+        required: false
         type: 'alphanumeric'
     }
     {
@@ -213,7 +213,7 @@ module.exports = [
         endPos: 230
         length: 6
         required: false
-        default: new Array(17).fill(' ').join('')
+        default: new Array(6).fill(' ').join('')
     }
     {
         field: 'codigos_ocorrencias'

@@ -31,17 +31,18 @@ class DevUtils
 
     extract: (sections, fileString) ->
         fileSections = fileString.split '\n'
+        _.each fileSections, (section) -> expect(section.length).to.be 240
         merged = _.reduce sections, (parsed, section, index) =>
             rules = @rules[section]
             content = fileSections[index]
             sectionData = _.reduce rules, (extracted, rule) ->
-                extracted["#{rule.field}"] = content.split('').slice(rule.startPos-1, rule.endPos).join ''
+                extracted.push "#{rule.field}": content?.split('').slice(rule.startPos-1, rule.endPos).join ''
                 extracted
-            , {}
-            parsed["#{section}"] = sectionData
+            , []
+            parsed[section] = sectionData
             parsed
         , {}
-        console.log merged
+        merged
 
     validate: ->
         for key, subject of @rules
@@ -60,6 +61,20 @@ class DevUtils
             , {totalLength: 0, lastPos: 0}
 
             expect(total.totalLength).to.be 240
+
+    validateFieldsLength: (fileData) =>
+        sections = _.keys @rules
+        _.each sections, (section) =>
+            fieldsConfig = @rules[section]
+            sectionTotalLength = 0
+            _.each fieldsConfig, (config) ->
+                dataField = _.find fileData[section], config.field
+                _.pull fileData[section], dataField
+                console.log "Checking #{section}.#{config.field} length. Expected: #{config.length}, got: #{dataField[config.field].length}"
+                expect(dataField[config.field].length).to.be config.length
+                sectionTotalLength += dataField[config.field].length
+            console.log "Checking section '#{section}' total length... expected 240, got #{sectionTotalLength}"
+            expect(sectionTotalLength).to.be 240
 
     _log: (msg) ->
         console.log msg

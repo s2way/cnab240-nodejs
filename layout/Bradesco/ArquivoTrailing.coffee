@@ -61,6 +61,6 @@ module.exports = [
         endPos: 240
         length: 205
         required: false
-        default: new Array(211).fill(' ').join('')
+        default: new Array(205).fill(' ').join('')
     }
 ]

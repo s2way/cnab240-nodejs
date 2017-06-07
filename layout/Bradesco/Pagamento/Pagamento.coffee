@@ -86,7 +86,8 @@ module.exports = [
         startPos: 29
         endPos: 29
         length: 1
-        required: true
+        required: false
+        type: 'numeric'
     }
     {
         field: 'favorecido_num_conta'
@@ -157,7 +158,7 @@ module.exports = [
         endPos: 134
         length: 15
         required: true
-        type: 'alphanumeric'
+        type: 'numeric'
     }
     {
         field: 'num_doc_atribuido_banco'
