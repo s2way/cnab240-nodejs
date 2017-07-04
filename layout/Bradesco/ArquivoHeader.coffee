@@ -53,7 +53,7 @@ module.exports = [
         endPos: 52
         length: 20
         required: true
-        type: 'numeric'
+        type: 'alphanumeric'
     }
     {
         field: 'conta_agencia'
@@ -64,12 +64,12 @@ module.exports = [
         type: 'numeric'
     }
     {
-        field: 'filler'
+        field: 'agencia_dig_verificador'
         startPos: 58
         endPos: 58
         length: 1
-        required: false
-        default: ' '
+        required: true
+        type: 'alphanumeric'
     }
     {
         field: 'conta_num'
@@ -165,7 +165,7 @@ module.exports = [
         endPos: 171
         length: 5
         required: false
-        type: 'numeric'
+        default: '01600'
     }
     {
         field: 'reservado_banco'

@@ -100,6 +100,6 @@ class Remessa
             sectionValues = _.omit section, 'section'
             @validateLenghts sectionKey, sectionValues
             @build @prepare sectionKey, sectionValues
-        remessa.join '\n'
+        remessa.join('\n') + '\n'
 
 module.exports = Remessa

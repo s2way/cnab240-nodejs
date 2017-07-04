@@ -5,7 +5,7 @@ module.exports = [
         endPos: 3
         length: 3
         required: true
-        default: 399
+        default: 237
     }
     {
         field: 'lote'

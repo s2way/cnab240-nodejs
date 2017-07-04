@@ -86,7 +86,7 @@ module.exports = [
         endPos: 52
         length: 20
         required: true
-        type: 'numeric'
+        type: 'alphanumeric'
     }
     {
         field: 'conta_agencia'
@@ -121,11 +121,12 @@ module.exports = [
         type: 'numeric'
     }
     {
-        field: 'agencia_conta_dig_verificador'
+        field: 'filler'
         startPos: 72
         endPos: 72
         length: 1
         required: false
+        type: 'numeric'
     }
     {
         field: 'empresa_nome'
@@ -221,5 +222,6 @@ module.exports = [
         endPos: 240
         length: 10
         required: false
+        default: new Array(10).fill(' ').join('')
     }
 ]

@@ -51,8 +51,8 @@ module.exports = [
         startPos: 42
         endPos: 59
         length: 18
-        required: true
-        type: 'numeric'
+        required: false
+        default: new Array(18).fill('0').join('')
     }
     {
         field: 'num_aviso_debito'
@@ -75,5 +75,6 @@ module.exports = [
         endPos: 240
         length: 10
         required: false
+        default: new Array(10).fill(' ').join('')
     }
 ]
