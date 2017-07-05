@@ -1,6 +1,3 @@
-expect = require 'expect.js'
-_ = require 'lodash'
-
 class Utils
 
     # expects item.value and item.length
