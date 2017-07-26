@@ -83,10 +83,18 @@ module.exports = [
     {
         field: 'convenio'
         startPos: 33
-        endPos: 52
-        length: 20
+        endPos: 38
+        length: 6
         required: true
-        type: 'alphanumeric'
+        type: 'numeric'
+    }
+    {
+        field: 'filler'
+        startPos: 39
+        endPos: 52
+        length: 14
+        required: false
+        default: new Array(14).fill(' ').join('')
     }
     {
         field: 'conta_agencia'
