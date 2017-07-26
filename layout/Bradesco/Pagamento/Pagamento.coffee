@@ -111,6 +111,7 @@ module.exports = [
         endPos: 43
         length: 1
         required: false
+        default: ' '
     }
     {
         field: 'favorecido_nome'

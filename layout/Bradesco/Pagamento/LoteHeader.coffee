@@ -126,7 +126,7 @@ module.exports = [
         endPos: 72
         length: 1
         required: false
-        type: 'numeric'
+        default: ' '
     }
     {
         field: 'empresa_nome'
