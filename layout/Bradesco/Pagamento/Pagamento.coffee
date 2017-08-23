@@ -206,7 +206,7 @@ module.exports = [
         startPos: 220
         endPos: 224
         length: 5
-        required: false
+        required: true
         type: 'alphanumeric'
     }
     {
@@ -231,7 +231,7 @@ module.exports = [
         endPos: 230
         length: 1
         required: false
-        type: 'alphanumeric'
+        default: '0'
     }
     {
         field: 'codigos_ocorrencias'
