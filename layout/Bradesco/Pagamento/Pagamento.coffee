@@ -207,7 +207,7 @@ module.exports = [
         endPos: 224
         length: 5
         required: true
-        type: 'alphanumeric'
+        type: 'numeric'
     }
     {
         field: 'cod_finalidade_compl'

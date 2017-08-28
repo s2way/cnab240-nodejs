@@ -1,0 +1,44 @@
+
+00001	Pagamento de Imposto, Tributos e Taxas
+00002	Pagamentos a concessionárias de serviços Públicos
+00003	Pagamentos de Dividendos
+00004	Pagamentos de Salários
+00005	Pagamentos de Fornecedores
+00006	Pagamentos de Honorários
+00007	Pagamentos de Aluguéis e Taxas e Condomínio
+00008	Pagamentos de Duplicatas e Títulos
+00009	Pagamentos de Honorários
+00010	Créditos em Conta
+00011	Pagamentos a Corretoras
+00016	Créditos em Conta Investimento
+00100	Depósitos Judiciais
+00101	Pensões Alimentícias
+00200	Transferências Internacional de Reais
+00201	Ajustes Posição Mercado Futuro
+00202	Repasse de Valores do BNDS
+00203	Liquidação de Compromisso com BNDS
+00204	Compra\Venda de Ações – Bolsa de Valores e Mercado de Balção
+00205	Contrato referenciado em Ações/Índices de Ações – BV/BMF
+00300	Restituição Imposto de Renda
+00500	Restituição Prêmio de Seguros
+00501	Pagamento de Indenização de Sinistro de Seguro
+00502	Pagamento de Prêmio de Co - seguro
+00503	Restituição de Prêmio de CO - Seguro
+00504	Pagamentos de Indenização de CO - Seguro
+00505	Pagamentos de Prêmio de Resseguro
+00506	Restituição de Prêmio de Resseguro
+00507	Pagamento de Indenização de sinistro de Resseguro
+00508	Restituição de Indenização de Sinistro de Resseguro
+00509	Pagamento de Despesas com sinistros
+00510	Pagamento de Inspeções/Vistorias Prévias
+00511	Pagamento de Resgate de Título de Capitalização
+00512	Pagamento de Sorteio de Título de Capitalização
+00513	Pagamento de Devolução de Mensalidade de Títulos de Capitalização
+00514	Restituição de Contribuição de Plano Previdência
+00515	Pagamento de Beneficio Previdência de Pecúlio
+00516	Pagamento de Beneficio Previdenciário de Pensão
+00517	Pagamento de Beneficio Previdenciário de Aposentadoria
+00518	Pagamento de Resgate Previdenciário
+00519	Pagamento de Comissão de Corretagem
+00520	Pagamento de Transferências/Portabilidade de Reserva de Seguro/Previdência
+99999	Outros
