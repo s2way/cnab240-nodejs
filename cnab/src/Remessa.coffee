@@ -76,8 +76,8 @@ class Remessa
         # expect(base.length).to.be 240
         base.join ''
 
-    process: (userValues, fileSections) ->
-        FILE_SECTIONS = fileSections if fileSections?
+    process: (userValues, fileSections, newLine = '\n') ->
+        FILE_SECTIONS ?= fileSections
         # let's test if all required file sections were given
         missingKeys = _.difference FILE_SECTIONS, _.keys userValues
         throw Error "Missing file sections: #{missingKeys.join(', ')}" unless _.isEmpty missingKeys
@@ -100,6 +100,6 @@ class Remessa
             sectionValues = _.omit section, 'section'
             @validateLenghts sectionKey, sectionValues
             @build @prepare sectionKey, sectionValues
-        remessa.join('\n') + '\n'
+        remessa.join(newLine) + newLine
 
 module.exports = Remessa
