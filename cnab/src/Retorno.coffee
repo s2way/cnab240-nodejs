@@ -10,9 +10,9 @@ class Retorno
     LOT_TRAILING = 'LoteTrailing'
     DETAIL = 'Detail'
     DETAIL2 = 'Detail2'
-    FILE_SECTIONS = [FILE_HEADER, LOT_HEADER, DETAIL, DETAIL2, LOT_TRAILING, FILE_TRAILING]
 
     constructor: (bank, type) ->
+        @FILE_SECTIONS = [FILE_HEADER, LOT_HEADER, DETAIL, DETAIL2, LOT_TRAILING, FILE_TRAILING]
         @rules =
             ArquivoHeader: rules[bank].ArquivoHeader
             ArquivoTrailing: rules[bank].ArquivoTrailing
@@ -23,15 +23,15 @@ class Retorno
         @CONSTANTS = rules[bank][type]?.Constants
 
     extract: (fileString, sections) ->
-        FILE_SECTIONS ?= sections
+        @FILE_SECTIONS ?= sections
         lines = fileString.split '\n'
-        merged = _.reduce FILE_SECTIONS, (parsed, section, index) =>
-            rules = @rules[section]
+        merged = _.reduce @FILE_SECTIONS, (parsed, section, index) =>
+            localRules = @rules[section]
             content = lines[index]
-            sectionData = _.reduce rules, (extracted, rule) ->
-                extracted.push "#{rule.field}": content?.split('').slice(rule.startPos-1, rule.endPos).join ''
+            sectionData = _.reduce localRules, (extracted, rule) ->
+                extracted["#{rule.field}"] = content?.split('').slice(rule.startPos-1, rule.endPos).join ''
                 extracted
-            , []
+            , {}
             parsed[section] = sectionData
             parsed
         , {}
