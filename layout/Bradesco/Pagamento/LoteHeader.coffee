@@ -29,7 +29,7 @@ module.exports = [
         endPos: 9
         length: 1
         required: true
-        default: 'C'
+        default: 'D'
         type: 'numeric'
     }
     {
