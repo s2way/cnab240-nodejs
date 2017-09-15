@@ -3,6 +3,7 @@ Utils = require './Utils'
 Joi = require 'joi'
 expect = require 'expect.js'
 _ = require 'lodash'
+removeAccents = require 'remove-accents'
 
 class Remessa
 
@@ -100,6 +101,6 @@ class Remessa
             sectionValues = _.omit section, 'section'
             @validateLenghts sectionKey, sectionValues
             @build @prepare sectionKey, sectionValues
-        remessa.join(newLine) + newLine
+        removeAccents(remessa.join(newLine) + newLine)
 
 module.exports = Remessa
