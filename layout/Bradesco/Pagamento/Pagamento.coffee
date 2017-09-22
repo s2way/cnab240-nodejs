@@ -134,8 +134,8 @@ module.exports = [
         startPos: 94
         endPos: 101
         length: 8
-        required: true
-        type: 'alphanumeric'
+        required: false
+        type: 'numeric'
     }
     {
         field: 'tipo_moeda'
@@ -158,7 +158,7 @@ module.exports = [
         startPos: 120
         endPos: 134
         length: 15
-        required: true
+        required: false
         type: 'numeric'
     }
     {
