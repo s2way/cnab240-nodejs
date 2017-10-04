@@ -53,7 +53,6 @@ module.exports =
             OP_DISPOSICAO: '10'
             PGTO_CONTAS: '11'
             TED_OUTRA_TITULARIDADE: '41'
-            TED_MESMA_TITULARIDADE: '43'
             # ... 99
     Pagamento:
         TIPO_MOVIMENTO: # tipo de movimento a que o detalhe se destina
