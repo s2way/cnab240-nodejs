@@ -3,6 +3,34 @@ expect = require 'expect.js'
 rules = require '../../layout/Rules'
 
 class Retorno
+    
+    ###
+        JSON ouput structure:
+
+        ArquivoHeader: {}
+        lots: [
+            {
+                LoteHeader: {}
+                details: [
+                    [
+                        {
+                            Segment1: {}
+                            Segment2: {}
+                        }
+                    ]
+                    [
+                        {
+                            Segment1: {}
+                            Segment2: {}
+                        }
+                    ]
+                ]
+                LoteTrailing: {}
+            }
+        ]
+        ArquivoTrailing: {}
+    
+    ###
 
     FILE_HEADER = 'ArquivoHeader'
     FILE_TRAILING = 'ArquivoTrailing'
@@ -48,7 +76,7 @@ class Retorno
                 memo.push []
                 memo[memo.length - 1].push line
             else
-                memo[currentPos].push line
+                memo[currentPos]?.push line
             memo
         , []
 
@@ -79,10 +107,15 @@ class Retorno
         {
             "#{LOT_HEADER}": @extractFields lotHeaderLine, LOT_HEADER
             details: detailsWithSegments
-            "#{LOT_TRAILING}": @extractFields lotHeaderLine, LOT_TRAILING
+            "#{LOT_TRAILING}": @extractFields lotTrailingLine, LOT_TRAILING
         }
 
-    extract: (fileString, sections) ->
+    extract: (fileString) ->
+        # console.log fileString
+        # sanitizedFileString = _.replace fileString, '\r\n', '\n'
+        # console.log sanitizedFileString
+        # lines = _.compact(sanitizedFileString.split '\n')
+        # console.log lines
         lines = _.compact(fileString.split '\n')
         
         fileHeaderLine = @extractSection lines, FILE_HEADER, FILE_SECTIONS.FILE_HEADER
@@ -98,32 +131,4 @@ class Retorno
             "#{FILE_TRAILING}": @extractFields fileTrailingLine, FILE_TRAILING
         }
         
-        # ArquivoHeader: {}
-        # Lots: [
-        #     {
-        #         LotHeader: {}
-        #         Items: [
-        #             {
-        #                 Segment1: {}
-        #                 Segment2: {}
-        #             }
-        #         ]
-        #         LotTrailing: {}
-        #     }
-        # ]
-        # ArquivoTrailing: {}
-            
-        
-        # merged = _.reduce @FILE_SECTIONS, (parsed, section, index) =>
-        #     localRules = @rules[section]
-        #     content = lines[index]
-        #     sectionData = _.reduce localRules, (extracted, rule) ->
-        #         extracted["#{rule.field}"] = content?.split('').slice(rule.startPos-1, rule.endPos).join ''
-        #         extracted
-        #     , {}
-        #     parsed[section] = sectionData
-        #     parsed
-        # , {}
-        # merged
-
 module.exports = Retorno

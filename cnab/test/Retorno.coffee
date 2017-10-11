@@ -34,7 +34,7 @@ describe 'Retorno.js', ->
             23700015         000008000000000000110750000000000000000000000000                                                                                                                                                                               
             23799999         000001000006                                                                                                                                                                                                                   
 
-"""
+        """
 
         exampleRetornoTwoLots = """
             23700000         2071444070001310000317324          0350760000000003646 VERSUL TECNOLOGIA             BANCO BRADESCO S.A.                     2091020171654260000010890000000000000BRAD                                                         
@@ -62,7 +62,7 @@ describe 'Retorno.js', ->
             23700015         000008000000000000110750000000000000000000000000                                                                                                                                                                               
             23799999         000001000010                                                                                                                                                                                                                   
 
-"""
+        """
 
         exampleRetornoMany = """
             23700000         2071444070001310000317324          0350760000000003646 VERSUL TECNOLOGIA             BANCO BRADESCO S.A.                     2091020171654260000010890000000000000BRAD                                                         
@@ -81,6 +81,17 @@ describe 'Retorno.js', ->
             23799999         000002000006                                                                                                                                                                                                                   
 
         """
+        
+        exampleNotDefinedDetails = """
+            23700000         2071444070001310000317324          0350760000000003646 VERSUL TECNOLOGIA             BANCO BRADESCO S.A.                     2031020171357270000010000000000000000BRAD                                                         \r
+            23700011I03  022 2071444070001310000317324          0350760000000003646 VERSUL TECNOLOGIA                                                                                                                                                       \r
+            2370001300001G 02237967299000005630028460913726571051000669602004988631000111SKYTEF SOLUCOES EM CAPTURA DE 031020170000000000563000000000000000000981760-01       028460V.OLIMPIA-1022209201700000000000003800000000000000000000000010030112017 \r
+            2370001300002H 021000000000000000                                        000000000000000000000000000000000000000000000000201102017000000000000200000000000000000000000013726571051                                                              
+            2370001300003Y 01032007144407000131VERSUL TECNOLOGIA DE ACESSO INTELIGENTE RUA MARCILIO DIAS,1659                                 93410185NOVO HAMBURGO  RS                                                                                     
+            23700015         000005000000000000000000000000000000000000000000                                                                                                                                                                               
+            23799999         000001000007                                                                                                                                                                                                                   
+
+        """
 
         #coffeelint: enable=no_trailing_whitespace
         
@@ -95,49 +106,36 @@ describe 'Retorno.js', ->
             
             retorno = new Retorno 'Bradesco', 'Pagamento'
             output = retorno.extract(exampleRetornoSingle)
-            expect(output).to.have.property 'ArquivoHeader'
-            expect(output).to.have.property 'ArquivoTrailing'
-            expect(output).to.have.property 'lots'
+            expect(output).to.have.keys ['ArquivoHeader','ArquivoTrailing','lots']
             expect(output.lots).to.have.length 1
-            expect(output.lots[0]).to.have.property 'LoteHeader'
-            expect(output.lots[0]).to.have.property 'LoteTrailing'
-            expect(output.lots[0]).to.have.property 'details'
+            expect(output.lots[0]).to.have.keys ['LoteHeader','LoteTrailing','details']
             expect(output.lots[0].details).to.have.length 1
             
             output = retorno.extract(exampleRetornoTwoLots)
-            expect(output).to.have.property 'ArquivoHeader'
-            expect(output).to.have.property 'ArquivoTrailing'
-            expect(output).to.have.property 'lots'
+            expect(output).to.have.keys ['ArquivoHeader','ArquivoTrailing','lots']
             expect(output.lots).to.have.length 2
-            expect(output.lots[0]).to.have.property 'LoteHeader'
-            expect(output.lots[0]).to.have.property 'LoteTrailing'
-            expect(output.lots[0]).to.have.property 'details'
+            expect(output.lots[0]).to.have.keys ['LoteHeader','LoteTrailing','details']
             expect(output.lots[0].details).to.have.length 1
-            expect(output.lots[1]).to.have.property 'LoteHeader'
-            expect(output.lots[1]).to.have.property 'LoteTrailing'
-            expect(output.lots[1]).to.have.property 'details'
+            expect(output.lots[1]).to.have.keys ['LoteHeader','LoteTrailing','details']
             expect(output.lots[1].details).to.have.length 1
             
             output = retorno.extract(exampleRetornoThreeDetails)
-            expect(output).to.have.property 'ArquivoHeader'
-            expect(output).to.have.property 'ArquivoTrailing'
-            expect(output).to.have.property 'lots'
+            expect(output).to.have.keys ['ArquivoHeader','ArquivoTrailing','lots']
             expect(output.lots).to.have.length 1
-            expect(output.lots[0]).to.have.property 'LoteHeader'
-            expect(output.lots[0]).to.have.property 'LoteTrailing'
-            expect(output.lots[0]).to.have.property 'details'
+            expect(output.lots[0]).to.have.keys ['LoteHeader','LoteTrailing','details']
             expect(output.lots[0].details).to.have.length 3
             
             output = retorno.extract(exampleRetornoMany)
-            expect(output).to.have.property 'ArquivoHeader'
-            expect(output).to.have.property 'ArquivoTrailing'
-            expect(output).to.have.property 'lots'
+            expect(output).to.have.keys ['ArquivoHeader','ArquivoTrailing','lots']
             expect(output.lots).to.have.length 2
-            expect(output.lots[0]).to.have.property 'LoteHeader'
-            expect(output.lots[0]).to.have.property 'LoteTrailing'
-            expect(output.lots[0]).to.have.property 'details'
+            expect(output.lots[0]).to.have.keys ['LoteHeader','LoteTrailing','details']
             expect(output.lots[0].details).to.have.length 1
-            expect(output.lots[1]).to.have.property 'LoteHeader'
-            expect(output.lots[1]).to.have.property 'LoteTrailing'
-            expect(output.lots[1]).to.have.property 'details'
+            expect(output.lots[1]).to.have.keys ['LoteHeader','LoteTrailing','details']
             expect(output.lots[1].details).to.have.length 3
+            
+            output = retorno.extract(exampleNotDefinedDetails)
+            expect(output).to.have.keys ['ArquivoHeader','ArquivoTrailing','lots']
+            expect(output.lots).to.have.length 1
+            expect(output.lots[0]).to.have.keys ['LoteHeader','LoteTrailing','details']
+            expect(output.lots[0].details).to.have.length 0
+            
