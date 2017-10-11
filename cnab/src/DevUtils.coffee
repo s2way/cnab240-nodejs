@@ -70,14 +70,14 @@ class DevUtils
             _.each fieldsConfig, (config) ->
                 dataField = _.find fileData[section], config.field
                 _.pull fileData[section], dataField
-                console.log "Checking #{section}.#{config.field} length. Expected: #{config.length}, got: #{dataField[config.field].length}"
+                # console.log "Checking #{section}.#{config.field} length. Expected: #{config.length}, got: #{dataField[config.field].length}"
                 expect(dataField[config.field].length).to.be config.length
                 sectionTotalLength += dataField[config.field].length
-            console.log "Checking section '#{section}' total length... expected 240, got #{sectionTotalLength}"
+            # console.log "Checking section '#{section}' total length... expected 240, got #{sectionTotalLength}"
             expect(sectionTotalLength).to.be 240
 
     _log: (msg) ->
-        console.log msg
+        # console.log msg
 
     _stdout: (msg) ->
         process.stdout.write msg

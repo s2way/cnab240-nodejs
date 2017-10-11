@@ -20,17 +20,17 @@ validator = new DevUtils bank, type
 
 fileString = fs.readFileSync '/home/andre/remessa'
 fileData = fileString.toString()
-process.stdout.write '### '
-console.log fileData
-process.stdout.write ' ###'
+# process.stdout.write '### '
+# console.log fileData
+# process.stdout.write ' ###'
 
-console.log '\n>>>>> extracted fields\n'
+# console.log '\n>>>>> extracted fields\n'
 extractedFields = validator.extract FILE_SECTIONS, fileData
 
-console.log '\n>>>>> fields length validation'
+# console.log '\n>>>>> fields length validation'
 validator.validateFieldsLength extractedFields
 
-console.log '\n>>>>> file length validation\n'
+# console.log '\n>>>>> file length validation\n'
 expect(fileData.length).to.be FILE_SECTIONS.length * 240 + FILE_SECTIONS.length - 1
 
 

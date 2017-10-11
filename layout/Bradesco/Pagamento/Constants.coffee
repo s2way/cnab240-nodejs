@@ -1,5 +1,6 @@
 module.exports =
     ArquivoHeader:
+        REGISTRY_FIELD: 'registro'
         ARQUIVO_COD:
             REMESSA: '1'
             RETORNO: '2'
@@ -9,7 +10,11 @@ module.exports =
             CNPJ: '2'
             PIS_PASEP: '3'
             OUTRO: '9'
+    ArquivoTrailing:
+        TOTAL_LOTES_FIELD: 'qtde_lotes'
+        REGISTRY_FIELD: 'registro'
     LoteHeader:
+        REGISTRY_FIELD: 'registro'
         TIPO_SERVICO:
             COBRANCA: '01'
             BLOQUETO_ELETRONICO: '03'
@@ -54,7 +59,10 @@ module.exports =
             PGTO_CONTAS: '11'
             TED_OUTRA_TITULARIDADE: '41'
             # ... 99
+    LoteTrailing:
+        REGISTRY_FIELD: 'registro'
     Pagamento:
+        REGISTRY_FIELD: 'cod_seg_registro_lote'
         TIPO_MOVIMENTO: # tipo de movimento a que o detalhe se destina
             INCLUSAO: 0
             CONSULTA: 1
@@ -68,6 +76,12 @@ module.exports =
         COD_CAMARA_CENTRALIZADORA:
             TED: '18'
             DOC: '700'
+    SegmentoInicial: 'A'
+    Segmentos:
+        A: 'Detail'
+        B: 'Detail2'
+        C: false
+        '5': false
     CodigosOcorrencias:
         '00': 'Crédito ou Débito Efetivado'
         '01': 'Insuficiência de Fundos - Débito Não Efetuado'
