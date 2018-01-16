@@ -2,7 +2,7 @@
   "name": "cnab240-nodejs",
   "version": "0.1.0",
   "description": "Gerador de arquivo de remessa padrão CNAB 240 / HSBC",
-  "main": "main.coffee",
+  "main": "main.js",
   "scripts": {
     "pretest": "node_modules/.bin/coffeelint -f coffeelint.json src",
     "test": "mocha test --recursive -R progress --compilers coffee:coffee-script/register",
