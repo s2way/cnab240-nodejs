@@ -1,4 +1,4 @@
 module.exports = {
-  Remessa: require('./cnab/src/Remessa.coffee'),
-  Retorno: require('./cnab/src/Retorno.coffee')
+  Remessa: require('./js/src/Remessa.js'),
+  Retorno: require('./js/src/Retorno.js')
 }
