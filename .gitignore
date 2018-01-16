@@ -38,3 +38,5 @@ jspm_packages
 
 coverage.html
 gen_files/*.REM
+
+js/*
