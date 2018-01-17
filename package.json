@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "pretest": "node_modules/.bin/coffeelint -f coffeelint.json src",
-    "test": "mocha test --recursive -R progress --compilers coffee:coffee-script/register",
-    "postinstall": "./node_modules/.bin/coffee --compile --output js/ cnab/"
+    "test": "mocha test --recursive -R progress --compilers coffee:coffee-script/register"
   },
   "repository": {
     "type": "git",
