@@ -37,8 +37,7 @@ module.exports = [
         endPos: 14,
         length: 1,
         required: true,
-        default: 'B',
-        type: 'alphanumeric'
+        default: 'E'
     },
     {
         field: 'filler',
@@ -46,11 +45,10 @@ module.exports = [
         endPos: 17,
         length: 3,
         required: false,
-        default: new Array(3).fill(' ').join(''),
-        type: 'alphanumeric'
+        default: new Array(3).fill(' ').join('')
     },
     {
-        field: 'favorecido_tipo_inscricao',
+        field: 'empresa_tipo_insc',
         startPos: 18,
         endPos: 18,
         length: 1,
@@ -58,7 +56,7 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'favorecido_num_inscricao',
+        field: 'empresa_num_insc',
         startPos: 19,
         endPos: 32,
         length: 14,
@@ -66,147 +64,162 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'favorecido_logradouro',
+        field: 'convenio',
         startPos: 33,
-        endPos: 62,
-        length: 30,
-        required: false,
-        type: 'alphanumeric'
-    },
-    {
-        field: 'favorecido_num',
-        startPos: 63,
-        endPos: 67,
-        length: 5,
-        required: false,
-        type: 'alphanumeric'
-    },
-    {
-        field: 'favorecido_compl',
-        startPos: 68,
-        endPos: 82,
-        length: 15,
-        required: false,
-        type: 'alphanumeric'
-    },
-    {
-        field: 'favorecido_bairro',
-        startPos: 83,
-        endPos: 97,
-        length: 15,
-        required: false,
-        type: 'alphanumeric'
-    },
-    {
-        field: 'favorecido_cidade',
-        startPos: 98,
-        endPos: 117,
+        endPos: 52,
         length: 20,
-        required: false,
-        type: 'alphanumeric'
+        required: true,
+        type: 'numeric'
     },
     {
-        field: 'favorecido_cep',
-        startPos: 118,
-        endPos: 122,
+        field: 'conta_agencia',
+        startPos: 53,
+        endPos: 57,
         length: 5,
         required: false,
         type: 'numeric'
     },
     {
-        field: 'favorecido_cep_compl',
-        startPos: 123,
-        endPos: 125,
-        length: 3,
-        required: false,
-        type: 'numeric'
-    },
-    {
-        field: 'favorecido_estado',
-        startPos: 126,
-        endPos: 127,
-        length: 2,
+        field: 'agencia_dig_verificador',
+        startPos: 58,
+        endPos: 58,
+        length: 1,
         required: false,
         type: 'alphanumeric'
     },
     {
-        field: 'data_vencimento',
-        startPos: 128,
-        endPos: 135,
-        length: 8,
-        required: true,
-        type: 'numeric'
-    },
-    {
-        field: 'valor_documento',
-        startPos: 136,
-        endPos: 150,
-        length: 15,
-        required: true,
-        type: 'numeric'
-    },
-    {
-        field: 'valor_abatimento',
-        startPos: 151,
-        endPos: 165,
-        length: 15,
+        field: 'conta_num',
+        startPos: 59,
+        endPos: 70,
+        length: 12,
         required: false,
         type: 'numeric'
     },
     {
-        field: 'valor_desconto',
-        startPos: 166,
-        endPos: 180,
-        length: 15,
-        required: false,
-        type: 'numeric'
-    },
-    {
-        field: 'valor_mora',
-        startPos: 181,
-        endPos: 195,
-        length: 15,
-        required: false,
-        type: 'numeric'
-    },
-    {
-        field: 'valor_multa',
-        startPos: 196,
-        endPos: 210,
-        length: 15,
-        required: false,
-        type: 'numeric'
-    },
-    {
-        field: 'cod_doc_favorecido',
-        startPos: 211,
-        endPos: 225,
-        length: 15,
-        required: false,
-        type: 'alphanumeric'
-    },
-    {
-        field: 'aviso_ao_favorecido',
-        startPos: 226,
-        endPos: 226,
+        field: 'conta_dig_verificador',
+        startPos: 71,
+        endPos: 71,
         length: 1,
         required: false,
         type: 'numeric'
     },
     {
+        field: 'ag_conta_digito_verificador',
+        startPos: 72,
+        endPos: 72,
+        length: 1,
+        required: false,
+        default: ' '
+    },
+    {
+        field: 'empresa_nome',
+        startPos: 73,
+        endPos: 102,
+        length: 30,
+        required: true,
+        type: 'alphanumeric'
+    },
+    {
         field: 'filler',
-        startPos: 227,
-        endPos: 232,
+        startPos: 103,
+        endPos: 108,
         length: 6,
         required: false,
         default: new Array(6).fill(' ').join('')
     },
     {
-        field: 'codigo_ispb',
-        startPos: 233,
-        endPos: 240,
+        field: 'natureza_lcto',
+        startPos: 109,
+        endPos: 111,
+        length: 3,
+        required: false,
+        type: 'numeric',
+    },
+    {
+        field: 'tipo_complemento',
+        startPos: 112,
+        endPos: 113,
+        length: 2,
+        required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'complemento',
+        startPos: 114,
+        endPos: 133,
+        length: 20,
+        required: false,
+        type: 'alphanumeric'
+    },
+    {
+        field: 'isencao_cpmf',
+        startPos: 134,
+        endPos: 134,
+        length: 1,
+        required: false,
+        type: 'alphanumeric'
+    },
+    {
+        field: 'data_contabil',
+        startPos: 135,
+        endPos: 142,
         length: 8,
         required: false,
-        default: new Array(8).fill(' ').join('')
+        type: 'numeric'
+    },
+    {
+        field: 'dala_lancamento',
+        startPos: 143,
+        endPos: 150,
+        length: 8,
+        required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'valor_lancamento',
+        startPos: 151,
+        endPos: 168,
+        length: 18,
+        required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'tipo_lancamento',
+        startPos: 169,
+        endPos: 169,
+        length: 1,
+        required: true,
+        type: 'alphanumeric'
+    },
+    {
+        field: 'categoria_lancamento',
+        startPos: 170,
+        endPos: 172,
+        length: 3,
+        required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'codigo_historico',
+        startPos: 173,
+        endPos: 176,
+        length: 4,
+        required: false,
+        type: 'alphanumeric'
+    },
+    {
+        field: 'descricao_historico',
+        startPos: 177,
+        endPos: 201,
+        length: 25,
+        required: false,
+        type: 'alphanumeric'
+    },
+    {
+        field: 'num_documento_compl',
+        startPos: 202,
+        endPos: 240,
+        length: 39,
+        required: false
     }
 ];
