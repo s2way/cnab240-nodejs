@@ -142,12 +142,12 @@ module.exports = [
         type: 'alphanumeric'
     },
     {
-        field: 'mensagem',
+        field: 'filler',
         startPos: 103,
         endPos: 142,
         length: 40,
         required: false,
-        type: 'alphanumeric'
+        default: new Array(40).fill(' ').join('')
     },
     {
         field: 'data_inicial',

@@ -21,15 +21,31 @@ module.exports = [
         endPos: 8,
         length: 1,
         required: true,
-        default: 5
+        default: 3
+    },
+    {
+        field: 'num_seq_registro_lote',
+        startPos: 9,
+        endPos: 13,
+        length: 5,
+        required: true,
+        type: 'numeric'
+    },
+    {
+        field: 'cod_seg_registro_lote',
+        startPos: 14,
+        endPos: 14,
+        length: 1,
+        required: true,
+        default: 'E'
     },
     {
         field: 'filler',
-        startPos: 9,
+        startPos: 15,
         endPos: 17,
-        length: 9,
+        length: 3,
         required: false,
-        default: new Array(9).fill(' ').join('')
+        default: new Array(3).fill(' ').join('')
     },
     {
         field: 'empresa_tipo_insc',
@@ -50,18 +66,10 @@ module.exports = [
     {
         field: 'convenio',
         startPos: 33,
-        endPos: 38,
-        length: 6,
+        endPos: 52,
+        length: 20,
         required: true,
         type: 'numeric'
-    },
-    {
-        field: 'filler',
-        startPos: 39,
-        endPos: 52,
-        length: 14,
-        required: false,
-        default: new Array(14).fill(' ').join('')
     },
     {
         field: 'conta_agencia',
@@ -93,50 +101,74 @@ module.exports = [
         endPos: 71,
         length: 1,
         required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'ag_conta_digito_verificador',
+        startPos: 72,
+        endPos: 72,
+        length: 1,
+        required: false,
+        default: ' '
+    },
+    {
+        field: 'empresa_nome',
+        startPos: 73,
+        endPos: 102,
+        length: 30,
+        required: true,
         type: 'alphanumeric'
     },
     {
-        field: 'ag_conta_dig_verificador',
-        startPos: 72,
-        endPos: 72,
+        field: 'filler',
+        startPos: 103,
+        endPos: 108,
+        length: 6,
+        required: false,
+        default: new Array(6).fill(' ').join('')
+    },
+    {
+        field: 'natureza_lcto',
+        startPos: 109,
+        endPos: 111,
+        length: 3,
+        required: false,
+        type: 'numeric',
+    },
+    {
+        field: 'tipo_complemento',
+        startPos: 112,
+        endPos: 113,
+        length: 2,
+        required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'complemento',
+        startPos: 114,
+        endPos: 133,
+        length: 20,
+        required: false,
+        type: 'alphanumeric'
+    },
+    {
+        field: 'isencao_cpmf',
+        startPos: 134,
+        endPos: 134,
         length: 1,
         required: false,
         type: 'alphanumeric'
     },
     {
-        field: 'filler',
-        startPos: 73,
-        endPos: 88,
-        length: 16,
-        required: false,
-        default: new Array(16).fill(' ').join('')
-    },
-    {
-        field: 'vinculado',
-        startPos: 89,
-        endPos: 106,
-        length: 18,
-        required: false,
-        type: 'numeric'
-    },
-    {
-        field: 'limite',
-        startPos: 107,
-        endPos: 124,
-        length: 18,
-        required: false,
-        type: 'numeric'
-    },
-    {
-        field: 'bloqueado',
-        startPos: 125,
+        field: 'data_contabil',
+        startPos: 135,
         endPos: 142,
-        length: 18,
+        length: 8,
         required: false,
         type: 'numeric'
     },
     {
-        field: 'data_saldo_final',
+        field: 'dala_lancamento',
         startPos: 143,
         endPos: 150,
         length: 8,
@@ -144,7 +176,7 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'valor_saldo_final',
+        field: 'valor_lancamento',
         startPos: 151,
         endPos: 168,
         length: 18,
@@ -152,48 +184,42 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'situacao',
+        field: 'tipo_lancamento',
         startPos: 169,
         endPos: 169,
         length: 1,
-        required: false,
+        required: true,
         type: 'alphanumeric'
     },
     {
-        field: 'posicao',
+        field: 'categoria_lancamento',
         startPos: 170,
-        endPos: 170,
-        length: 1,
+        endPos: 172,
+        length: 3,
+        required: false,
+        type: 'numeric'
+    },
+    {
+        field: 'codigo_historico',
+        startPos: 173,
+        endPos: 176,
+        length: 4,
         required: false,
         type: 'alphanumeric'
     },
     {
-        field: 'qtde_registros',
-        startPos: 171,
-        endPos: 176,
-        length: 6,
-        required: false,
-    },
-    {
-        field: 'somatoria_debitos',
+        field: 'descricao_historico',
         startPos: 177,
-        endPos: 194,
-        length: 18,
+        endPos: 201,
+        length: 25,
         required: false,
+        type: 'alphanumeric'
     },
     {
-        field: 'somatoria_creditos',
-        startPos: 195,
-        endPos: 212,
-        length: 18,
-        required: false,
-    },
-    {
-        field: 'filler',
-        startPos: 213,
+        field: 'num_documento_compl',
+        startPos: 202,
         endPos: 240,
-        length: 28,
-        required: false,
-        default: new Array(28).fill(' ').join('')
+        length: 39,
+        required: false
     }
 ];

@@ -115,8 +115,9 @@ class DevUtils {
         });
     }
 
-    _log(msg) {}
-        // console.log msg
+    _log(msg) {
+        console.log(msg)
+    }
 
     _stdout(msg) {
         return process.stdout.write(msg);
