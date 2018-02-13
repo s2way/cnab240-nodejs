@@ -56,7 +56,7 @@ class DevUtils {
 
     extract(sections, fileString) {
         const fileSections = fileString.split('\n');
-        _.each(fileSections, section => expect(section.length).to.be(240));
+        _.each(fileSections.pop(), section => expect(section.length).to.be(241));
         const merged = _.reduce(sections, (parsed, section, index) => {
             rules = this.rules[section];
             const content = fileSections[index];
