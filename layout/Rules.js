@@ -24,8 +24,7 @@ module.exports = {
             LoteHeader: require('./Bradesco/Conciliacao/LoteHeader.js'),
             LoteTrailing: require('./Bradesco/Conciliacao/LoteTrailing.js'),
             Detail: require('./Bradesco/Conciliacao/Conciliacao.js'),
-            Detail2: require('./Bradesco/Conciliacao/Conciliacao2.js'),
-            // Constants: require('./Bradesco/Conciliacao/Constants.js')
+            Constants: require('./Bradesco/Conciliacao/Constants.js')
         }
     }
 };

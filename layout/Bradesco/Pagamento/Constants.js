@@ -88,7 +88,7 @@ module.exports = {
             DOC: '700'
         }
     },
-    SegmentoInicial: 'A',
+    Detail: 'A',
     Segmentos: {
         A: 'Detail',
         B: 'Detail2',

@@ -58,7 +58,8 @@ var Retorno = (function() {
             FILE_SECTIONS = {
                 FILE_HEADER: '0',
                 LOT_HEADER: '1',
-                DETAIL: 'A',
+                // DETAIL: 'A',
+                DETAIL: 'E',
                 LOT_TRAILING: '5',
                 FILE_TRAILING: '9'
             };
@@ -67,6 +68,7 @@ var Retorno = (function() {
         constructor(bank, type) {
             if (bank == null) { throw new Error('Bank is mandatory'); }
             if (type == null) { throw new Error('Type is mandatory'); }
+            this.type = type
             this.rules = {
                 ArquivoHeader: rules[bank].ArquivoHeader,
                 ArquivoTrailing: rules[bank].ArquivoTrailing,
@@ -131,9 +133,10 @@ var Retorno = (function() {
         }
 
         extractDetails(lotLines) {
+            console.log(this.type);
             const lotHeaderLine = this.extractSection(lotLines, LOT_HEADER, FILE_SECTIONS.LOT_HEADER);
             const lotTrailingLine = this.extractSection(lotLines, LOT_TRAILING, FILE_SECTIONS.LOT_TRAILING);
-            const detailsBulks = this.extractBulk(lotLines, _.find(this.rules.Detail, {field: this.CONSTANTS.Pagamento.REGISTRY_FIELD}), FILE_SECTIONS.DETAIL);
+            const detailsBulks = this.extractBulk(lotLines, _.find(this.rules.Detail, {field: this.CONSTANTS[this.type].REGISTRY_FIELD}), this.CONSTANTS.Detail);
             const detailsWithSegments = _.map(detailsBulks, this.extractSegments.bind(this));
             return {
                 [LOT_HEADER]: this.extractFields(lotHeaderLine, LOT_HEADER),
