@@ -133,7 +133,6 @@ var Retorno = (function() {
         }
 
         extractDetails(lotLines) {
-            console.log(this.type);
             const lotHeaderLine = this.extractSection(lotLines, LOT_HEADER, FILE_SECTIONS.LOT_HEADER);
             const lotTrailingLine = this.extractSection(lotLines, LOT_TRAILING, FILE_SECTIONS.LOT_TRAILING);
             const detailsBulks = this.extractBulk(lotLines, _.find(this.rules.Detail, {field: this.CONSTANTS[this.type].REGISTRY_FIELD}), this.CONSTANTS.Detail);

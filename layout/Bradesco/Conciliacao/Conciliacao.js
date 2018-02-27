@@ -168,7 +168,7 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'dala_lancamento',
+        field: 'data_lancamento',
         startPos: 143,
         endPos: 150,
         length: 8,

@@ -158,7 +158,7 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'saldo_inicial',
+        field: 'valor_saldo_inicial',
         startPos: 151,
         endPos: 168,
         length: 18,

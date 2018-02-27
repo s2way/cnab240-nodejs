@@ -152,7 +152,7 @@ module.exports = [
         type: 'numeric'
     },
     {
-        field: 'situacao',
+        field: 'situacao_saldo_final',
         startPos: 169,
         endPos: 169,
         length: 1,
